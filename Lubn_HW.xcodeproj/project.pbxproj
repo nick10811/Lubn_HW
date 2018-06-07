@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		94B2CE1620C90F6200729E74 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B2CE1520C90F6200729E74 /* AppDelegate.swift */; };
-		94B2CE1820C90F6200729E74 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B2CE1720C90F6200729E74 /* ViewController.swift */; };
 		94B2CE1B20C90F6300729E74 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94B2CE1920C90F6300729E74 /* Main.storyboard */; };
 		94B2CE1D20C90F6600729E74 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 94B2CE1C20C90F6600729E74 /* Assets.xcassets */; };
 		94B2CE2020C90F6600729E74 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94B2CE1E20C90F6600729E74 /* LaunchScreen.storyboard */; };
@@ -26,6 +25,9 @@
 		94B2CE5920C9443800729E74 /* JsonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B2CE5820C9443800729E74 /* JsonModel.swift */; };
 		94B2CE5C20C945FB00729E74 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B2CE5B20C945FB00729E74 /* UserManager.swift */; };
 		94B2CE5E20C9505100729E74 /* PropertyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B2CE5D20C9505100729E74 /* PropertyService.swift */; };
+		94B2CE6020C9569100729E74 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B2CE5F20C9569100729E74 /* LoginViewController.swift */; };
+		94B2CE6320C9602500729E74 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B2CE6220C9602500729E74 /* ColorExtension.swift */; };
+		94B2CE6520C9615500729E74 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B2CE6420C9615500729E74 /* StringExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,7 +43,6 @@
 /* Begin PBXFileReference section */
 		94B2CE1220C90F6200729E74 /* Lubn_HW.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lubn_HW.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		94B2CE1520C90F6200729E74 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		94B2CE1720C90F6200729E74 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		94B2CE1A20C90F6300729E74 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		94B2CE1C20C90F6600729E74 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		94B2CE1F20C90F6600729E74 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -62,6 +63,9 @@
 		94B2CE5820C9443800729E74 /* JsonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonModel.swift; sourceTree = "<group>"; };
 		94B2CE5B20C945FB00729E74 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		94B2CE5D20C9505100729E74 /* PropertyService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyService.swift; sourceTree = "<group>"; };
+		94B2CE5F20C9569100729E74 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		94B2CE6220C9602500729E74 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
+		94B2CE6420C9615500729E74 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +117,7 @@
 				94B2CE3720C910AA00729E74 /* Resources */,
 				94B2CE5020C9144300729E74 /* Utiles */,
 				94B2CE3A20C911EE00729E74 /* Network */,
+				94B2CE6120C95FF800729E74 /* Extension */,
 				94B2CE5A20C945E500729E74 /* Manager */,
 				94B2CE5720C943F500729E74 /* Model */,
 				94B2CE3920C911A400729E74 /* ViewController */,
@@ -159,7 +164,7 @@
 		94B2CE3920C911A400729E74 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				94B2CE1720C90F6200729E74 /* ViewController.swift */,
+				94B2CE5F20C9569100729E74 /* LoginViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -218,6 +223,15 @@
 				94B2CE5B20C945FB00729E74 /* UserManager.swift */,
 			);
 			path = Manager;
+			sourceTree = "<group>";
+		};
+		94B2CE6120C95FF800729E74 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				94B2CE6220C9602500729E74 /* ColorExtension.swift */,
+				94B2CE6420C9615500729E74 /* StringExtension.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -345,13 +359,15 @@
 			files = (
 				94B2CE5C20C945FB00729E74 /* UserManager.swift in Sources */,
 				94B2CE4220C911EE00729E74 /* NetworkErrorEnum.swift in Sources */,
-				94B2CE1820C90F6200729E74 /* ViewController.swift in Sources */,
 				94B2CE4020C911EE00729E74 /* HttpClient.swift in Sources */,
 				94B2CE5320C9144400729E74 /* Founctions.swift in Sources */,
 				94B2CE1620C90F6200729E74 /* AppDelegate.swift in Sources */,
 				94B2CE5E20C9505100729E74 /* PropertyService.swift in Sources */,
 				94B2CE5920C9443800729E74 /* JsonModel.swift in Sources */,
 				94B2CE4120C911EE00729E74 /* HttpConnection.swift in Sources */,
+				94B2CE6520C9615500729E74 /* StringExtension.swift in Sources */,
+				94B2CE6020C9569100729E74 /* LoginViewController.swift in Sources */,
+				94B2CE6320C9602500729E74 /* ColorExtension.swift in Sources */,
 				94B2CE5620C9152500729E74 /* LoginService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
