@@ -28,6 +28,8 @@
 		94B2CE6020C9569100729E74 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B2CE5F20C9569100729E74 /* LoginViewController.swift */; };
 		94B2CE6320C9602500729E74 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B2CE6220C9602500729E74 /* ColorExtension.swift */; };
 		94B2CE6520C9615500729E74 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B2CE6420C9615500729E74 /* StringExtension.swift */; };
+		94B2CE6720C964E600729E74 /* PropertyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B2CE6620C964E600729E74 /* PropertyViewController.swift */; };
+		94B2CE6920C96E6600729E74 /* PropertyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B2CE6820C96E6600729E74 /* PropertyCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +68,8 @@
 		94B2CE5F20C9569100729E74 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		94B2CE6220C9602500729E74 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 		94B2CE6420C9615500729E74 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		94B2CE6620C964E600729E74 /* PropertyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyViewController.swift; sourceTree = "<group>"; };
+		94B2CE6820C96E6600729E74 /* PropertyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +161,7 @@
 			children = (
 				94B2CE1920C90F6300729E74 /* Main.storyboard */,
 				94B2CE1E20C90F6600729E74 /* LaunchScreen.storyboard */,
+				94B2CE6A20C96E7200729E74 /* CustomUI */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -165,6 +170,7 @@
 			isa = PBXGroup;
 			children = (
 				94B2CE5F20C9569100729E74 /* LoginViewController.swift */,
+				94B2CE6620C964E600729E74 /* PropertyViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -232,6 +238,14 @@
 				94B2CE6420C9615500729E74 /* StringExtension.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		94B2CE6A20C96E7200729E74 /* CustomUI */ = {
+			isa = PBXGroup;
+			children = (
+				94B2CE6820C96E6600729E74 /* PropertyCell.swift */,
+			);
+			path = CustomUI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -357,6 +371,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				94B2CE6920C96E6600729E74 /* PropertyCell.swift in Sources */,
 				94B2CE5C20C945FB00729E74 /* UserManager.swift in Sources */,
 				94B2CE4220C911EE00729E74 /* NetworkErrorEnum.swift in Sources */,
 				94B2CE4020C911EE00729E74 /* HttpClient.swift in Sources */,
@@ -366,6 +381,7 @@
 				94B2CE5920C9443800729E74 /* JsonModel.swift in Sources */,
 				94B2CE4120C911EE00729E74 /* HttpConnection.swift in Sources */,
 				94B2CE6520C9615500729E74 /* StringExtension.swift in Sources */,
+				94B2CE6720C964E600729E74 /* PropertyViewController.swift in Sources */,
 				94B2CE6020C9569100729E74 /* LoginViewController.swift in Sources */,
 				94B2CE6320C9602500729E74 /* ColorExtension.swift in Sources */,
 				94B2CE5620C9152500729E74 /* LoginService.swift in Sources */,

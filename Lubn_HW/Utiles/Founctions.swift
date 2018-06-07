@@ -39,3 +39,15 @@ func printLog<T>(_ level: LogLevel, _ message: T, file: String = #file, line: In
         print("\(levelStr) \((file as NSString).lastPathComponent):\(line), \(method): \(message)")
     #endif
 }
+
+/// Configure Button:
+/// Image on the top, Title on the bottom (+10pt)
+///
+/// - parameter button:        UIButton
+///
+func configureMenuButton(button: UIButton){
+    button.imageEdgeInsets = UIEdgeInsetsMake(-(button.titleLabel?.intrinsicContentSize.height)!, 0, 0, -(button.titleLabel?.intrinsicContentSize.width)!)
+    if button.currentImage != nil {
+        button.titleEdgeInsets = UIEdgeInsetsMake((button.currentImage?.size.height)!+10, -(button.currentImage?.size.width)!, 0, 0)
+    }
+}
