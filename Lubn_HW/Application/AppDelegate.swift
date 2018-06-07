@@ -8,6 +8,8 @@
 
 import UIKit
 let serverIP = "https://cky9jjmd5l.execute-api.us-west-2.amazonaws.com/v0/app"
+let appVer = "iv1.0"
+let apiKey = "cucXZsH1HlcE5lqzUQua2K6ThXjEFyTNc7vqmkiuYfpHc8OIFfaNXRhwM7HHh8G"
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {

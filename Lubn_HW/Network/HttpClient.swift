@@ -58,7 +58,7 @@ class HttpClient {
                 }
                 
             case .failure:
-                printLog(.error, "post failed")
+                printLog(.error, "get failed")
                 var message = data.error?.localizedDescription
                 message = message == nil ? "Unstale Network" : message
                 error(NetworkError.timeout, message!)

@@ -9,7 +9,7 @@
 import Foundation
 
 class UserManager {
-    var jwtToken: String?
+    var jwtToken: String = ""
     var managerInfo: ManagerInfoModel?
     var propertyList = [PropertyModel]()
     

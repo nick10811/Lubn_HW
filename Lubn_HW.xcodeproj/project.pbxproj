@@ -25,6 +25,7 @@
 		94B2CE5620C9152500729E74 /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B2CE5520C9152500729E74 /* LoginService.swift */; };
 		94B2CE5920C9443800729E74 /* JsonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B2CE5820C9443800729E74 /* JsonModel.swift */; };
 		94B2CE5C20C945FB00729E74 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B2CE5B20C945FB00729E74 /* UserManager.swift */; };
+		94B2CE5E20C9505100729E74 /* PropertyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B2CE5D20C9505100729E74 /* PropertyService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +61,7 @@
 		94B2CE5520C9152500729E74 /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
 		94B2CE5820C9443800729E74 /* JsonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonModel.swift; sourceTree = "<group>"; };
 		94B2CE5B20C945FB00729E74 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
+		94B2CE5D20C9505100729E74 /* PropertyService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,6 +179,7 @@
 			isa = PBXGroup;
 			children = (
 				94B2CE5520C9152500729E74 /* LoginService.swift */,
+				94B2CE5D20C9505100729E74 /* PropertyService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -346,6 +349,7 @@
 				94B2CE4020C911EE00729E74 /* HttpClient.swift in Sources */,
 				94B2CE5320C9144400729E74 /* Founctions.swift in Sources */,
 				94B2CE1620C90F6200729E74 /* AppDelegate.swift in Sources */,
+				94B2CE5E20C9505100729E74 /* PropertyService.swift in Sources */,
 				94B2CE5920C9443800729E74 /* JsonModel.swift in Sources */,
 				94B2CE4120C911EE00729E74 /* HttpConnection.swift in Sources */,
 				94B2CE5620C9152500729E74 /* LoginService.swift in Sources */,

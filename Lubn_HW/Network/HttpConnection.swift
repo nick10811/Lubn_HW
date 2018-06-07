@@ -24,13 +24,28 @@ class HttpConnectionRequest {
     
     func post(response:@escaping(JSON)->Void, error:@escaping(Int, String)->Void) {
         let url = serverIP+urlname
-        printLog(.debug, "HttpConnection:\(url), dictString: \(dict)" )
-        _ = HttpClient.sharedInstance().request(.post, url, ["X-App-Version":"iv1.0",
+        printLog(.debug, "[POST] HttpConnection:\(url), dictString: \(dict)" )
+        _ = HttpClient.sharedInstance().request(.post, url, ["X-App-Version":appVer,
                                                              "accept":"application/json",
-                                                             "X-Api-Key":"cucXZsH1HlcE5lqzUQua2K6ThXjEFyTNc7vqmkiuYfpHc8OIFfaNXRhwM7HHh8G",
+                                                             "X-Api-Key":apiKey,
                                                              "Content-Type":"application/x-www-form-urlencoded"],
                                                 dict, response: { (result) in
             response(result)
+        }, error: { (code, message) in
+            self.errorCode = code
+            error(code.rawValue, message)
+        })
+    }
+    
+    func get(response:@escaping(JSON)->Void, error:@escaping(Int, String)->Void) {
+        let url = serverIP+urlname
+        printLog(.debug, "[GET] HttpConnection:\(url), dictString: \(dict)" )
+        _ = HttpClient.sharedInstance().request(.get, url, ["X-App-Version":appVer,
+                                                             "accept":"application/json",
+                                                             "X-Api-Key":apiKey,
+                                                             "Authorization":"Bearer \(UserManager.sharedInstance().jwtToken)"],
+                                                dict, response: { (result) in
+                                                    response(result)
         }, error: { (code, message) in
             self.errorCode = code
             error(code.rawValue, message)
