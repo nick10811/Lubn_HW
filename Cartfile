@@ -1,0 +1,5 @@
+github "Alamofire/Alamofire"
+github "SwiftyJSON/SwiftyJSON"
+github "rs/SDWebImage"
+github "ashleymills/Reachability.swift"
+github "jdg/MBProgressHUD"

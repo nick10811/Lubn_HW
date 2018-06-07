@@ -7,6 +7,7 @@
 //
 
 import UIKit
+let serverIP = "https://cky9jjmd5l.execute-api.us-west-2.amazonaws.com/v0/app"
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
