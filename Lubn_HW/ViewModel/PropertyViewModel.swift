@@ -67,9 +67,9 @@ class PropertyViewModel: BaseViewModel {
         self.loadingDelegate?.loadingDone()
     }
     
-    func setSelected(isSelected: Bool, indexPath: IndexPath) {
+    func setSelected(indexPath: IndexPath) {
         let model = self.modelAtIndex(indexPath: indexPath)
-        model.isSelected = isSelected
+        model.isSelected = !model.isSelected
     }
     
     func numberOfSection() -> Int {

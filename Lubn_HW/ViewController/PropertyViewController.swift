@@ -89,17 +89,11 @@ extension PropertyViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        propertyVM.setSelected(isSelected: true, indexPath: indexPath)
+        propertyVM.setSelected(indexPath: indexPath)
         let cell = tableView.cellForRow(at: indexPath) as! PropertyCell
-        cell.selectedCell()
+        cell.setupUI(model: propertyVM.modelAtIndex(indexPath: indexPath))
     }
     
-    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-        propertyVM.setSelected(isSelected: false, indexPath: indexPath)
-        let cell = tableView.cellForRow(at: indexPath) as! PropertyCell
-        cell.deselectedCell()
-    }
-
 }
 
 extension PropertyViewController: LoadingDelegate {
