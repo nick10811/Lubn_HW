@@ -22,6 +22,10 @@ class HttpConnectionRequest {
         self.dict = dict
     }
     
+    init() {
+        self.dict = [:]
+    }
+    
     func post(response:@escaping(JSON)->Void, error:@escaping(Int, String)->Void) {
         let url = serverIP+urlname
         printLog(.debug, "[POST] HttpConnection:\(url), dictString: \(dict)" )
@@ -37,8 +41,8 @@ class HttpConnectionRequest {
         })
     }
     
-    func get(response:@escaping(JSON)->Void, error:@escaping(Int, String)->Void) {
-        let url = serverIP+urlname
+    func get(urlParameter: String, response:@escaping(JSON)->Void, error:@escaping(Int, String)->Void) {
+        let url = serverIP+urlname+urlParameter
         printLog(.debug, "[GET] HttpConnection:\(url), dictString: \(dict)" )
         _ = HttpClient.sharedInstance().request(.get, url, ["X-App-Version":appVer,
                                                              "accept":"application/json",

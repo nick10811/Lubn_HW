@@ -220,6 +220,9 @@
                                                 <state key="normal" title="sign out" image="icon_signout">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="clickSignOut:" destination="RNI-kD-tCD" eventType="touchUpInside" id="2MM-TG-sNV"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -240,7 +243,7 @@
                                 <rect key="frame" x="0.0" y="251" width="375" height="416"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="propertyCell" rowHeight="80" id="ay8-ed-t1q" customClass="PropertyCell">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="propertyCell" rowHeight="80" id="ay8-ed-t1q" customClass="PropertyCell" customModule="Lubn_HW" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ay8-ed-t1q" id="PMY-rG-qEP">
@@ -274,6 +277,10 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <outlet property="addr1Label" destination="8MY-ar-dYq" id="xZk-zC-4F4"/>
+                                            <outlet property="addr2Label" destination="b6u-89-8ez" id="Amj-G0-fKE"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -306,8 +313,10 @@
                     <connections>
                         <outlet property="accountButton" destination="fT6-lA-nxb" id="9sR-Xy-USN"/>
                         <outlet property="activationButton" destination="End-TS-xzp" id="Url-je-ejK"/>
+                        <outlet property="emailLabel" destination="hqX-hT-fIE" id="gNK-Tt-7GM"/>
                         <outlet property="feedbackButton" destination="Ma5-Cy-gqC" id="y42-FO-u71"/>
                         <outlet property="orderButton" destination="gDQ-dX-ese" id="rdb-2y-XsY"/>
+                        <outlet property="photoImage" destination="VzX-RI-mFh" id="EG6-VW-Hz4"/>
                         <outlet property="referralButton" destination="CQS-xS-Klz" id="3n1-9v-Rwl"/>
                         <outlet property="signOutButton" destination="K5L-or-KmQ" id="QYT-Rn-eAT"/>
                     </connections>

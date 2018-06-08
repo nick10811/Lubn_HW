@@ -7,14 +7,20 @@
 //
 
 import UIKit
+import SDWebImage
 
 class PropertyViewController: UIViewController {
+    @IBOutlet weak var photoImage: UIImageView!
+    @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var activationButton: UIButton!
     @IBOutlet weak var accountButton: UIButton!
     @IBOutlet weak var referralButton: UIButton!
     @IBOutlet weak var orderButton: UIButton!
     @IBOutlet weak var feedbackButton: UIButton!
     @IBOutlet weak var signOutButton: UIButton!
+    
+    let propertyVM: PropertyViewModel = PropertyViewModel()
+    let authVM: AuthViewModel = AuthViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,19 +34,37 @@ class PropertyViewController: UIViewController {
         configureMenuButton(button: signOutButton)
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.photoImage.sd_setImage(with: URL(string: authVM.getPhotoURL()), placeholderImage: nil)
+        self.emailLabel.text = authVM.getEmail()
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    @IBAction func clickSignOut(_ sender: Any) {
+        authVM.siginOut()
+        self.dismiss(animated: true, completion: nil)
+    }
+    
 }
 
 extension PropertyViewController: UITableViewDataSource, UITableViewDelegate {
-    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return propertyVM.numberOfSection()
     }
     
-    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "propertyCell", for: indexPath)
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return propertyVM.numberOfItemsInSection(section: section)
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "propertyCell", for: indexPath) as! PropertyCell
+        cell.setupUI(model: propertyVM.modelAtIndex(indexPath: indexPath))
         return cell
     }
 

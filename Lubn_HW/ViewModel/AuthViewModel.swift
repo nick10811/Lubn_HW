@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SDWebImage
 
 enum URLType {
     case register
@@ -45,6 +46,14 @@ class AuthViewModel: BaseViewModel {
     
     func siginOut() {
         UserManager.sharedInstance().reset()
+    }
+    
+    func getPhotoURL() -> String {
+        return UserManager.sharedInstance().managerInfo?.photoURL ?? ""
+    }
+    
+    func getEmail() -> String {
+        return UserManager.sharedInstance().managerInfo?.email ?? ""
     }
     
 }

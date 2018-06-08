@@ -9,7 +9,9 @@
 import UIKit
 
 class PropertyCell: UITableViewCell {
-
+    @IBOutlet weak var addr1Label: UILabel!
+    @IBOutlet weak var addr2Label: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -19,6 +21,11 @@ class PropertyCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    func setupUI(model: PropertyModel) {
+        self.addr1Label.text = model.addr
+        self.addr2Label.text = "\(model.city), \(model.state) \(model.zip)"
     }
 
 }
