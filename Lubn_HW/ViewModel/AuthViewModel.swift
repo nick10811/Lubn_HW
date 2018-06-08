@@ -15,6 +15,8 @@ enum URLType {
 }
 
 class AuthViewModel: BaseViewModel {
+    let user = UserManager.sharedInstance()
+    let setting = SettingManager.sharedInstance()
     
     func siginIn(email: String,
                  pwd: String,
@@ -24,11 +26,11 @@ class AuthViewModel: BaseViewModel {
         let webservice = LoginService(email: email, pwd: pwd)
         _ = webservice.login(respnose: { (token, managerInfo, propertyCount, propertyArray) in
             // store user data
-            let user = UserManager.sharedInstance()
-            user.jwtToken = token
-            user.managerInfo = managerInfo
-            user.propertyCount = propertyCount
-            user.addPropertyArray(array: propertyArray)
+            self.user.jwtToken = token
+            self.user.managerInfo = managerInfo
+            self.user.propertyCount = propertyCount
+            self.user.addPropertyArray(array: propertyArray)
+            self.afterSiginIn()
             completion()
         }, error: { (code, message) in
             var newMessage = message
@@ -49,15 +51,47 @@ class AuthViewModel: BaseViewModel {
     }
     
     func siginOut() {
-        UserManager.sharedInstance().reset()
+        user.reset()
+        setting.remove(forKey: "JwtToken")
+        setting.remove(forKey: "PropertyCount")
+        setting.remove(forKey: "ManagerInfo")
     }
     
     func getPhotoURL() -> String {
-        return UserManager.sharedInstance().managerInfo?.photoURL ?? ""
+        return user.managerInfo?.photoURL ?? ""
     }
     
     func getEmail() -> String {
-        return UserManager.sharedInstance().managerInfo?.email ?? ""
+        return user.managerInfo?.email ?? ""
+    }
+    
+    private func afterSiginIn() {
+        setting.save(user.jwtToken, forKey: "JwtToken")
+        setting.save("\(user.propertyCount)", forKey: "PropertyCount")
+        if user.managerInfo != nil {
+            let archivedData = NSKeyedArchiver.archivedData(withRootObject: user.managerInfo!)
+            setting.saveObject(archivedData as AnyObject, forKey: "ManagerInfo")
+        }
+    }
+    
+    func needSiginIn() -> Bool {
+        var jwtToken: String = ""
+        var propertyCount: Int? = nil
+        var managerInfo: ManagerInfoModel? = nil
+        
+        jwtToken = setting.load("JwtToken") ?? ""
+        propertyCount = Int(setting.load("PropertyCount") ?? "")
+        let unarchivedData: Data? = setting.loadObject("ManagerInfo") as? Data
+        if unarchivedData != nil {
+            managerInfo = NSKeyedUnarchiver.unarchiveObject(with: unarchivedData!) as? ManagerInfoModel
+        }
+        
+        if jwtToken == "" ||
+            propertyCount == nil ||
+            managerInfo == nil {
+            return true
+        }
+        return false
     }
     
 }

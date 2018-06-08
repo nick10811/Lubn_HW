@@ -17,7 +17,7 @@ class JsonModel: NSObject {
     }
 }
 
-class ManagerInfoModel: JsonModel {
+class ManagerInfoModel: JsonModel, NSCoding {
     var mid: Int = 0
     var email: String = ""
     var photoURL: String = ""
@@ -27,6 +27,19 @@ class ManagerInfoModel: JsonModel {
         self.mid = self.jsonDict["mid"].intValue
         self.email = self.jsonDict["email"].stringValue
         self.photoURL = self.jsonDict["photourl"].stringValue
+    }
+    
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(self.mid, forKey: "mid")
+        aCoder.encode(self.email, forKey: "email")
+        aCoder.encode(self.photoURL, forKey: "photoURL")
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(jsonDict: JSON())
+        self.mid = aDecoder.decodeInteger(forKey: "mid")
+        self.email = aDecoder.decodeObject(forKey: "email") as! String
+        self.photoURL = aDecoder.decodeObject(forKey: "photoURL") as! String
     }
 }
 

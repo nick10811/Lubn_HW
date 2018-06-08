@@ -21,7 +21,14 @@ class LoginViewController: BaseViewController {
         self.hideStatusBar(hide: true)
         emailTextField.attributedPlaceholder = emailTextField.placeholder?.getPlaceholderAttribute()
         pwdTextField.attributedPlaceholder = pwdTextField.placeholder?.getPlaceholderAttribute()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         
+        if !viewModel.needSiginIn() {
+            self.siginInApp()
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -29,9 +36,10 @@ class LoginViewController: BaseViewController {
         // Dispose of any resources that can be recreated.
     }
     
-//    override var prefersStatusBarHidden: Bool {
-//        return true
-//    }
+    func siginInApp() {
+        let vc = findViewControllerByIdFromStoryboard("Main", viewControllerId: "PropertyViewController") as! PropertyViewController
+        self.present(vc, animated: true, completion: nil)
+    }
     
     @IBAction func clickSignIn(_ sender: Any) {
         let emailString = emailTextField.text ?? ""
@@ -40,8 +48,7 @@ class LoginViewController: BaseViewController {
         self.showLoading(show: true)
         viewModel.siginIn(email: emailString, pwd: pwdString, completion: {
             self.showLoading(show: false)
-            let vc = findViewControllerByIdFromStoryboard("Main", viewControllerId: "PropertyViewController") as! PropertyViewController
-            self.present(vc, animated: true, completion: nil)
+            self.siginInApp()
             
         }) { (code, message) in
             self.showLoading(show: false)

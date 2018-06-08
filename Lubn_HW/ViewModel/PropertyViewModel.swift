@@ -18,8 +18,10 @@ class PropertyViewModel: BaseViewModel {
         // do not send API when get first data in login API
         if UserManager.sharedInstance().propertyList.count > 0 {
             self.status = .loadDone
+            self.dataConvert(array: UserManager.sharedInstance().propertyList)
+        } else {
+            loadData()
         }
-        self.dataConvert(array: UserManager.sharedInstance().propertyList)
     }
     
     override func loadData() {
