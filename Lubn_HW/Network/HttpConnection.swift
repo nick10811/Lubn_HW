@@ -37,7 +37,7 @@ class HttpConnectionRequest {
     func post(response:@escaping(JSON)->Void, error:@escaping(Int, String)->Void) {
         let url = serverIP+urlname
         printLog(.debug, "[POST] HttpConnection:\(url), dictString: \(parameter)" )
-        _ = HttpClient.sharedInstance().request(.post, url, header,                                              parameter, response: { (result) in
+        _ = HttpClient.sharedInstance().request(.post, url, header, parameter, response: { (result) in
             response(result)
         }, error: { (code, message) in
             self.errorCode = code
@@ -48,7 +48,7 @@ class HttpConnectionRequest {
     func get(urlParameter: String, response:@escaping(JSON)->Void, error:@escaping(Int, String)->Void) {
         let url = serverIP+urlname+urlParameter
         printLog(.debug, "[GET] HttpConnection:\(url), dictString: \(parameter)" )
-        _ = HttpClient.sharedInstance().request(.get, url, header,                                                parameter, response: { (result) in                                                    response(result)
+        _ = HttpClient.sharedInstance().request(.get, url, header, parameter, response: { (result) in                                                    response(result)
         }, error: { (code, message) in
             self.errorCode = code
             error(code, message)

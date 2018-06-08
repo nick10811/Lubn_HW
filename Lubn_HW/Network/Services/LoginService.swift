@@ -13,8 +13,6 @@ class LoginService: HttpConnectionRequest {
     override var urlname: String { return "/signin/i" }
     
     convenience init(email: String, pwd: String){
-//        self.init(dict: ["email":email,
-//                         "password":pwd])
         self.init(header: ["Content-Type":"application/x-www-form-urlencoded"],
                   parameter: ["email":email,
                               "password":pwd])
