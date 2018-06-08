@@ -15,6 +15,10 @@ class PropertyViewModel: BaseViewModel {
     
     override init() {
         super.init()
+        // do not send API when get first data in login API
+        if UserManager.sharedInstance().propertyList.count > 0 {
+            self.status = .loadDone
+        }
         self.dataConvert(array: UserManager.sharedInstance().propertyList)
     }
     
@@ -38,15 +42,6 @@ class PropertyViewModel: BaseViewModel {
             self.status = .loadMoreFail
             self.loadingDelegate?.loadingFail(code: code, message: message)
         })
-//        let webService: PropertyService = PropertyService(mid: self.mid, offset: 0)
-//        _ = webService.getPropertyData(respnose: { (propertyArray) in
-//            self.status = .loadMoreDone
-//            self.dataConvert(array: propertyArray)
-//
-//        }, error: { (code, message) in
-//            self.status = .loadMoreFail
-//            self.loadingDelegate?.loadingFail(code: code, message: message)
-//        })
     }
     
     func dataConvert(array: [PropertyModel]) {

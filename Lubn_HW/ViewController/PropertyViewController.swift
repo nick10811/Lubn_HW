@@ -54,6 +54,11 @@ class PropertyViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
+    @objc func pullRefresh() {
+//        self.refreshControl?.endRefreshing()
+//        self.showLoading(show: true)
+//        propertyVM.refreshData()
+    }
 }
 
 extension PropertyViewController: UITableViewDataSource, UITableViewDelegate {
