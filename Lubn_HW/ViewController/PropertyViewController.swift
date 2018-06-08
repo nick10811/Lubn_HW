@@ -35,6 +35,11 @@ class PropertyViewController: UIViewController {
         configureMenuButton(button: signOutButton)
         
         self.propertyVM.loadingDelegate = self
+        
+        // pull refresh
+        self.propertyTable.refreshControl = UIRefreshControl()
+        self.propertyTable.refreshControl?.addTarget(self, action:#selector(pullRefresh), for: .valueChanged)
+        
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -55,9 +60,9 @@ class PropertyViewController: UIViewController {
     }
     
     @objc func pullRefresh() {
-//        self.refreshControl?.endRefreshing()
-//        self.showLoading(show: true)
-//        propertyVM.refreshData()
+        self.propertyTable.refreshControl?.endRefreshing()
+        self.showLoading(show: true)
+        self.propertyVM.refreshData()
     }
 }
 

@@ -25,6 +25,7 @@ class PropertyViewModel: BaseViewModel {
     override func loadData() {
         _ = webservice.getPropertyData(mid: self.mid, respnose: { (propertyArray) in
             self.status = .loadDone
+            self.modelArray.removeAll()
             self.dataConvert(array: propertyArray)
 
         }, error: { (code, message) in
