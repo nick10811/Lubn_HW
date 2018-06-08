@@ -18,4 +18,5 @@ import UIKit
     @objc optional func modelAtSection(section: Int) -> JsonModel
     @objc optional func modelAtIndex(indexPath: IndexPath) -> JsonModel
     @objc optional func isLastModel(indexPath: IndexPath) -> Bool
+    @objc optional func hasMoreData() -> Bool
 }

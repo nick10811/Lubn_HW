@@ -18,14 +18,13 @@ class PropertyCell: UITableViewCell {
         // Initialization code
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-    
     func setupUI(model: PropertyModel) {
-        self.deselectedCell()
+        if model.isSelected {
+            self.selectedCell()
+        } else {
+            self.deselectedCell()
+        }
+        
         self.addr1Label.text = model.addr
         self.addr2Label.text = "\(model.city), \(model.state) \(model.zip)"
     }

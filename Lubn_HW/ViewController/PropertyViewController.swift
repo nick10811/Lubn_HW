@@ -82,18 +82,20 @@ extension PropertyViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if propertyVM.isLastModel(indexPath: indexPath) {
+        if propertyVM.isLastModel(indexPath: indexPath) && propertyVM.hasMoreData() {
             self.showLoading(show: true)
             propertyVM.nextStatus()
         }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        propertyVM.setSelected(isSelected: true, indexPath: indexPath)
         let cell = tableView.cellForRow(at: indexPath) as! PropertyCell
         cell.selectedCell()
     }
     
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        propertyVM.setSelected(isSelected: false, indexPath: indexPath)
         let cell = tableView.cellForRow(at: indexPath) as! PropertyCell
         cell.deselectedCell()
     }

@@ -16,6 +16,7 @@ enum LoadingStatus {
     case loadMoreStart
     case loadMoreDone
     case loadMoreFail
+    case noMoreData
 }
 
 protocol LoadingDelegate {

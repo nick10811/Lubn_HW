@@ -37,6 +37,7 @@ class PropertyModel: JsonModel {
     var state: String = ""
     var zip: String = ""
     var country: String = ""
+    var isSelected: Bool = false
     
     override init(jsonDict: JSON) {
         super.init(jsonDict: jsonDict)

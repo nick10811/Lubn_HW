@@ -23,12 +23,7 @@ class Lubn_HWTests: XCTestCase {
     
     func testGetVideoDate() {
         let service = LoginService(email: "nick10811@gmail.com", pwd: "nepal")
-        service.login(respnose: { (result) in
-            XCTAssert(service.errorCode == .success)
-            
-        }) { (code, message) in
-            XCTAssert(false)
-        }
+        
     }
     
 }

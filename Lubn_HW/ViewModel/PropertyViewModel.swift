@@ -36,6 +36,12 @@ class PropertyViewModel: BaseViewModel {
     }
     
     override func loadMoreData() {
+        guard nextOffset < UserManager.sharedInstance().propertyCount else {
+            self.status = .noMoreData
+            self.loadingDelegate?.loadingDone()
+            return
+        }
+        
         _ = webservice.getPropertyData(mid: self.mid, offset: nextOffset, respnose: { (propertyArray) in
             self.status = .loadMoreDone
             self.dataConvert(array: propertyArray)
@@ -61,6 +67,11 @@ class PropertyViewModel: BaseViewModel {
         self.loadingDelegate?.loadingDone()
     }
     
+    func setSelected(isSelected: Bool, indexPath: IndexPath) {
+        let model = self.modelAtIndex(indexPath: indexPath)
+        model.isSelected = isSelected
+    }
+    
     func numberOfSection() -> Int {
         return 1
     }
@@ -79,6 +90,10 @@ class PropertyViewModel: BaseViewModel {
     
     func isLastModel(indexPath: IndexPath) -> Bool {
         return indexPath.item+1 == modelArray.count
+    }
+    
+    func hasMoreData() -> Bool {
+        return self.status != .noMoreData
     }
     
 }
