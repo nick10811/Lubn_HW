@@ -269,10 +269,20 @@
                                                         </label>
                                                     </subviews>
                                                 </stackView>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XAT-Ve-Cva">
+                                                    <rect key="frame" x="320" y="25" width="30" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="30" id="SMC-95-19c"/>
+                                                        <constraint firstAttribute="height" constant="30" id="Y6D-r7-kCz"/>
+                                                    </constraints>
+                                                    <state key="normal" image="icon_edit"/>
+                                                </button>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstItem="oTK-Cb-ebc" firstAttribute="leading" secondItem="PMY-rG-qEP" secondAttribute="leading" constant="15" id="JwR-yQ-XNS"/>
+                                                <constraint firstItem="XAT-Ve-Cva" firstAttribute="centerY" secondItem="PMY-rG-qEP" secondAttribute="centerY" id="QMH-8I-cpx"/>
+                                                <constraint firstAttribute="trailing" secondItem="XAT-Ve-Cva" secondAttribute="trailing" constant="25" id="Tni-29-TTQ"/>
                                                 <constraint firstAttribute="trailing" secondItem="oTK-Cb-ebc" secondAttribute="trailing" constant="15" id="glp-aW-7SE"/>
                                                 <constraint firstItem="oTK-Cb-ebc" firstAttribute="centerY" secondItem="PMY-rG-qEP" secondAttribute="centerY" id="pze-q6-SQi"/>
                                                 <constraint firstItem="oTK-Cb-ebc" firstAttribute="centerX" secondItem="PMY-rG-qEP" secondAttribute="centerX" id="ufj-Bi-A35"/>
@@ -282,6 +292,7 @@
                                         <connections>
                                             <outlet property="addr1Label" destination="8MY-ar-dYq" id="xZk-zC-4F4"/>
                                             <outlet property="addr2Label" destination="b6u-89-8ez" id="Amj-G0-fKE"/>
+                                            <outlet property="editButton" destination="XAT-Ve-Cva" id="uje-QR-Xvc"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -333,6 +344,7 @@
         <image name="glyph_splash" width="360" height="172"/>
         <image name="icon_account" width="24" height="24"/>
         <image name="icon_activation" width="24" height="24"/>
+        <image name="icon_edit" width="30" height="30"/>
         <image name="icon_feedback" width="24" height="24"/>
         <image name="icon_order" width="24" height="24"/>
         <image name="icon_referral" width="24" height="24"/>

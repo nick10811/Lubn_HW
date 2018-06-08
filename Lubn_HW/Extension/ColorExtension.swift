@@ -16,4 +16,12 @@ extension UIColor {
     class func statusBarColor() -> UIColor {
         return UIColor(red: 0/255, green: 141/255, blue: 223/255, alpha: 1.0)
     }
+    
+    class func fontGray1() -> UIColor {
+        return UIColor(red: 140/255, green: 140/255, blue: 140/255, alpha: 1.0)
+    }
+    
+    class func fontGray2() -> UIColor {
+        return UIColor(red: 109/255, green: 109/255, blue: 114/255, alpha: 1.0)
+    }
 }
