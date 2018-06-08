@@ -49,11 +49,3 @@ class PropertyModel: JsonModel {
     }
     
 }
-
-class LoginModel: JsonModel {
-    
-    override init(jsonDict: JSON) {
-        super.init(jsonDict: jsonDict)
-    }
-}
-
