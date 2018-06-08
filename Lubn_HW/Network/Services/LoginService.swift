@@ -19,7 +19,7 @@ class LoginService: HttpConnectionRequest {
     
     func login(respnose:@escaping (String, ManagerInfoModel, Int, [PropertyModel])->Void, error:@escaping (Int,String)->Void) {
         self.post(response: { (result) in
-            self.errorCode = .success
+            self.errorCode = NetworkError.success.rawValue
             let token = result["jwtToken"].stringValue
             let managerInfo = ManagerInfoModel(jsonDict: result["managerInfo"])
             let propertyCount = result["propertyCount"].intValue

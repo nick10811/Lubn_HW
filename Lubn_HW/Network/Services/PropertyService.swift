@@ -14,7 +14,7 @@ class PropertyService: HttpConnectionRequest {
     
     func getPropertyData(mid: Int, offset: Int = 0, respnose:@escaping ([PropertyModel])->Void, error:@escaping (Int,String)->Void) {
         self.get(urlParameter: "?mid=\(mid)&offset=\(offset)", response: { (result) in
-            self.errorCode = .success
+            self.errorCode = NetworkError.success.rawValue
             let resultModel = JsonModel(jsonDict: result)
             var propertyArray = [PropertyModel]()
             for tmp in resultModel.jsonDict["propertyList"].arrayValue {

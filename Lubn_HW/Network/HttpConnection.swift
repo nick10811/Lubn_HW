@@ -10,7 +10,7 @@ import Foundation
 import SwiftyJSON
 
 class HttpConnectionRequest {
-    var errorCode: NetworkError = .success
+    var errorCode: Int = NetworkError.success.rawValue
     var urlname: String {return ""}
     
     var dict: [String:Any]
@@ -37,7 +37,7 @@ class HttpConnectionRequest {
             response(result)
         }, error: { (code, message) in
             self.errorCode = code
-            error(code.rawValue, message)
+            error(code, message)
         })
     }
     
@@ -52,7 +52,7 @@ class HttpConnectionRequest {
                                                     response(result)
         }, error: { (code, message) in
             self.errorCode = code
-            error(code.rawValue, message)
+            error(code, message)
         })
     }
 }

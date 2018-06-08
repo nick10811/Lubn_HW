@@ -9,8 +9,10 @@
 import Foundation
 
 enum NetworkError: Int {
-    case success         = 0
-    case timeout         = 1
-    case parseDataFail   = 2
-    case APIFail         = 3
+    case success          = 200
+    case timeout          = 1
+    case parseDataFail    = 2
+    case invalidParameter = 400
+    case unauthorized     = 401
+    case needUpgrade      = 426
 }

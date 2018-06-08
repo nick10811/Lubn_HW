@@ -31,7 +31,11 @@ class AuthViewModel: BaseViewModel {
             user.addPropertyArray(array: propertyArray)
             completion()
         }, error: { (code, message) in
-            error(code, message)
+            var newMessage = message
+            if code == NetworkError.unauthorized.rawValue {
+                newMessage = "Incorrect email or password"
+            }
+            error(code, newMessage)
         })
     }
     

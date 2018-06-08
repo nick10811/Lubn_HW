@@ -41,7 +41,7 @@ class HttpClient {
     /// - parameter error:        The closure of failed
     ///
     /// - returns: The created `Http Request`.
-    func request(_ method: Alamofire.HTTPMethod, _ url: String, _ headers:[String:String]? = nil, _ parameters:[String:Any]? = nil, response:@escaping (JSON)->(), error:@escaping (NetworkError, String)->()) {
+    func request(_ method: Alamofire.HTTPMethod, _ url: String, _ headers:[String:String]? = nil, _ parameters:[String:Any]? = nil, response:@escaping (JSON)->(), error:@escaping (Int, String)->()) {
         printLog(.info, "Send:\n\(url), \nheader:\n\(String(describing: headers)) \npara:\n  \(String(describing: parameters))")
         
         sessionManager.request(url, method: method, parameters: parameters, encoding:URLEncoding.default, headers:headers).validate().responseJSON { data -> Void in
@@ -53,14 +53,21 @@ class HttpClient {
                     printLog(.info,"Back:\(String(describing: data.request?.url?.absoluteString)) , Result:\(json)")
                     response(json)
                 } else {
-                    error(NetworkError.parseDataFail, "Cannot parse response data")
+                    error(NetworkError.parseDataFail.rawValue, "Cannot parse response data")
                 }
                 
             case .failure:
-                printLog(.error, "get failed")
+                var errorCode = NetworkError.timeout.rawValue // default is network problem
+                if let status = data.response?.statusCode {
+                    errorCode = status
+                    printLog(.error, "Request Failed and Error code: \(errorCode)")
+                } else {
+                    printLog(.error, "Network problem causes request failed")
+                }
+                
                 var message = data.error?.localizedDescription
                 message = message == nil ? "Unstale Network" : message
-                error(NetworkError.timeout, message!)
+                error(errorCode, message!)
             }
         }
         
