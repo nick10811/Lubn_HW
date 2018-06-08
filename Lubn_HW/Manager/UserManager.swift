@@ -7,11 +7,13 @@
 //
 
 import Foundation
+import SwiftyJSON
 
 class UserManager {
     var jwtToken: String = ""
     var managerInfo: ManagerInfoModel?
     var propertyList = [PropertyModel]()
+    var propertyCount: Int = 0
     
     private static var instance: UserManager?
     static func sharedInstance() -> UserManager {
@@ -19,5 +21,16 @@ class UserManager {
             instance = UserManager()
         }
         return instance!
+    }
+    
+    func addPropertyArray(array: [PropertyModel]) {
+        self.propertyList.append(contentsOf: array)
+    }
+    
+    func reset() {
+        self.jwtToken = ""
+        self.managerInfo = nil
+        self.propertyCount = 0
+        self.propertyList.removeAll()
     }
 }

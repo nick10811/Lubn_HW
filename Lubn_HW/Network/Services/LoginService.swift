@@ -17,10 +17,17 @@ class LoginService: HttpConnectionRequest {
                          "password":pwd])
     }
     
-    func login(respnose:@escaping (JSON)->Void, error:@escaping (Int,String)->Void) {
+    func login(respnose:@escaping (String, ManagerInfoModel, Int, [PropertyModel])->Void, error:@escaping (Int,String)->Void) {
         self.post(response: { (result) in
             self.errorCode = .success
-            respnose(result)
+            let token = result["jwtToken"].stringValue
+            let managerInfo = ManagerInfoModel(jsonDict: result["managerInfo"])
+            let propertyCount = result["propertyCount"].intValue
+            var propertyArray = [PropertyModel]()
+            for tmp in result["propertyList"].arrayValue {
+                propertyArray.append(PropertyModel(jsonDict: tmp))
+            }
+            respnose(token, managerInfo, propertyCount, propertyArray)
             
         }) { (code, msg) in
             error(code, msg)

@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		941CB39920CA0403001FABFF /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941CB39820CA0403001FABFF /* BaseViewModel.swift */; };
+		941CB39D20CA0445001FABFF /* DataProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941CB39B20CA0444001FABFF /* DataProtocol.swift */; };
+		941CB39E20CA0445001FABFF /* LoadingDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941CB39C20CA0444001FABFF /* LoadingDelegate.swift */; };
+		941CB3A020CA04B1001FABFF /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941CB39F20CA04B1001FABFF /* AuthViewModel.swift */; };
+		941CB3A220CA0933001FABFF /* ViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941CB3A120CA0933001FABFF /* ViewControllerExtension.swift */; };
 		94B2CE1620C90F6200729E74 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B2CE1520C90F6200729E74 /* AppDelegate.swift */; };
 		94B2CE1B20C90F6300729E74 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94B2CE1920C90F6300729E74 /* Main.storyboard */; };
 		94B2CE1D20C90F6600729E74 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 94B2CE1C20C90F6600729E74 /* Assets.xcassets */; };
@@ -43,6 +48,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		941CB39820CA0403001FABFF /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
+		941CB39B20CA0444001FABFF /* DataProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataProtocol.swift; sourceTree = "<group>"; };
+		941CB39C20CA0444001FABFF /* LoadingDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingDelegate.swift; sourceTree = "<group>"; };
+		941CB39F20CA04B1001FABFF /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
+		941CB3A120CA0933001FABFF /* ViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerExtension.swift; sourceTree = "<group>"; };
+		941CB3A320CA095A001FABFF /* Lubn_HW-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Lubn_HW-Bridging-Header.h"; sourceTree = "<group>"; };
 		94B2CE1220C90F6200729E74 /* Lubn_HW.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lubn_HW.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		94B2CE1520C90F6200729E74 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		94B2CE1A20C90F6300729E74 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -95,6 +106,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		941CB39720CA0381001FABFF /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				941CB39820CA0403001FABFF /* BaseViewModel.swift */,
+				941CB39F20CA04B1001FABFF /* AuthViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		941CB39A20CA0444001FABFF /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				941CB39B20CA0444001FABFF /* DataProtocol.swift */,
+				941CB39C20CA0444001FABFF /* LoadingDelegate.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
 		94B2CE0920C90F6200729E74 = {
 			isa = PBXGroup;
 			children = (
@@ -123,7 +152,9 @@
 				94B2CE3A20C911EE00729E74 /* Network */,
 				94B2CE6120C95FF800729E74 /* Extension */,
 				94B2CE5A20C945E500729E74 /* Manager */,
+				941CB39A20CA0444001FABFF /* Protocol */,
 				94B2CE5720C943F500729E74 /* Model */,
+				941CB39720CA0381001FABFF /* ViewModel */,
 				94B2CE3920C911A400729E74 /* ViewController */,
 				94B2CE3820C9119D00729E74 /* View */,
 			);
@@ -144,6 +175,7 @@
 			children = (
 				94B2CE1520C90F6200729E74 /* AppDelegate.swift */,
 				94B2CE2120C90F6600729E74 /* Info.plist */,
+				941CB3A320CA095A001FABFF /* Lubn_HW-Bridging-Header.h */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -236,6 +268,7 @@
 			children = (
 				94B2CE6220C9602500729E74 /* ColorExtension.swift */,
 				94B2CE6420C9615500729E74 /* StringExtension.swift */,
+				941CB3A120CA0933001FABFF /* ViewControllerExtension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -299,6 +332,7 @@
 				TargetAttributes = {
 					94B2CE1120C90F6200729E74 = {
 						CreatedOnToolsVersion = 9.4;
+						LastSwiftMigration = 0940;
 					};
 					94B2CE2520C90F6600729E74 = {
 						CreatedOnToolsVersion = 9.4;
@@ -372,16 +406,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				94B2CE6920C96E6600729E74 /* PropertyCell.swift in Sources */,
+				941CB39E20CA0445001FABFF /* LoadingDelegate.swift in Sources */,
 				94B2CE5C20C945FB00729E74 /* UserManager.swift in Sources */,
 				94B2CE4220C911EE00729E74 /* NetworkErrorEnum.swift in Sources */,
 				94B2CE4020C911EE00729E74 /* HttpClient.swift in Sources */,
 				94B2CE5320C9144400729E74 /* Founctions.swift in Sources */,
 				94B2CE1620C90F6200729E74 /* AppDelegate.swift in Sources */,
 				94B2CE5E20C9505100729E74 /* PropertyService.swift in Sources */,
+				941CB3A020CA04B1001FABFF /* AuthViewModel.swift in Sources */,
 				94B2CE5920C9443800729E74 /* JsonModel.swift in Sources */,
 				94B2CE4120C911EE00729E74 /* HttpConnection.swift in Sources */,
+				941CB39D20CA0445001FABFF /* DataProtocol.swift in Sources */,
 				94B2CE6520C9615500729E74 /* StringExtension.swift in Sources */,
+				941CB3A220CA0933001FABFF /* ViewControllerExtension.swift in Sources */,
 				94B2CE6720C964E600729E74 /* PropertyViewController.swift in Sources */,
+				941CB39920CA0403001FABFF /* BaseViewModel.swift in Sources */,
 				94B2CE6020C9569100729E74 /* LoginViewController.swift in Sources */,
 				94B2CE6320C9602500729E74 /* ColorExtension.swift in Sources */,
 				94B2CE5620C9152500729E74 /* LoginService.swift in Sources */,
@@ -544,6 +583,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = KDFS53L46Q;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -558,6 +598,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.nick10811.Lubn-HW";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Lubn_HW/Application/Lubn_HW-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -567,6 +609,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = KDFS53L46Q;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -581,6 +624,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.nick10811.Lubn-HW";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Lubn_HW/Application/Lubn_HW-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
