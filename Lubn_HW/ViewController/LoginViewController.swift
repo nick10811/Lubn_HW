@@ -18,9 +18,13 @@ class LoginViewController: BaseViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        self.hideStatusBar(hide: true)
         emailTextField.attributedPlaceholder = emailTextField.placeholder?.getPlaceholderAttribute()
         pwdTextField.attributedPlaceholder = pwdTextField.placeholder?.getPlaceholderAttribute()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.hideStatusBar(hide: true)
     }
     
     override func viewDidAppear(_ animated: Bool) {
