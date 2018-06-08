@@ -15,7 +15,7 @@ class PropertyViewModel: BaseViewModel {
     
     override init() {
         super.init()
-        self.modelArray = UserManager.sharedInstance().propertyList
+        self.dataConvert(array: UserManager.sharedInstance().propertyList)
     }
     
     override func loadData() {
@@ -55,7 +55,7 @@ class PropertyViewModel: BaseViewModel {
         self.modelArray = self.modelArray.sorted(by: { (obj1 , obj2) -> Bool in
             let pObj1 = obj1 as! PropertyModel
             let pObj2 = obj2 as! PropertyModel
-            return pObj1.idx > pObj2.idx
+            return pObj1.idx < pObj2.idx
         })
         
         // search offset

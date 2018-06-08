@@ -317,6 +317,7 @@
                         <outlet property="feedbackButton" destination="Ma5-Cy-gqC" id="y42-FO-u71"/>
                         <outlet property="orderButton" destination="gDQ-dX-ese" id="rdb-2y-XsY"/>
                         <outlet property="photoImage" destination="VzX-RI-mFh" id="EG6-VW-Hz4"/>
+                        <outlet property="propertyTable" destination="71Y-DM-RrG" id="R4r-DR-ipr"/>
                         <outlet property="referralButton" destination="CQS-xS-Klz" id="3n1-9v-Rwl"/>
                         <outlet property="signOutButton" destination="K5L-or-KmQ" id="QYT-Rn-eAT"/>
                     </connections>

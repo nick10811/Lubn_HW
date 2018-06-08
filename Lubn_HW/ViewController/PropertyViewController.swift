@@ -18,6 +18,7 @@ class PropertyViewController: UIViewController {
     @IBOutlet weak var orderButton: UIButton!
     @IBOutlet weak var feedbackButton: UIButton!
     @IBOutlet weak var signOutButton: UIButton!
+    @IBOutlet weak var propertyTable: UITableView!
     
     let propertyVM: PropertyViewModel = PropertyViewModel()
     let authVM: AuthViewModel = AuthViewModel()
@@ -32,6 +33,8 @@ class PropertyViewController: UIViewController {
         configureMenuButton(button: orderButton)
         configureMenuButton(button: feedbackButton)
         configureMenuButton(button: signOutButton)
+        
+        self.propertyVM.loadingDelegate = self
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -67,5 +70,24 @@ extension PropertyViewController: UITableViewDataSource, UITableViewDelegate {
         cell.setupUI(model: propertyVM.modelAtIndex(indexPath: indexPath))
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if propertyVM.isLastModel(indexPath: indexPath) {
+            self.showLoading(show: true)
+            propertyVM.nextStatus()
+        }
+    }
 
+}
+
+extension PropertyViewController: LoadingDelegate {
+    func loadingDone() {
+        self.showLoading(show: false)
+        self.propertyTable.reloadData()
+    }
+    
+    func loadingFail(code: Int, message: String) {
+        self.showLoading(show: false)
+        self.showAlertWithConfirmTitle(title: "Error(\(code))", message: message)
+    }
 }
