@@ -91,6 +91,9 @@ class AuthViewModel: BaseViewModel {
             managerInfo == nil {
             return true
         }
+        user.jwtToken = jwtToken
+        user.propertyCount = propertyCount ?? 0
+        user.managerInfo = managerInfo
         return false
     }
     
