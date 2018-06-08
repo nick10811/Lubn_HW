@@ -27,6 +27,10 @@ class LoginViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
+    
     @IBAction func clickSignIn(_ sender: Any) {
         let emailString = emailTextField.text ?? ""
         let pwdString = pwdTextField.text ?? ""
