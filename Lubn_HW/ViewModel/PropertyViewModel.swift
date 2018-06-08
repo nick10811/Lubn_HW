@@ -10,7 +10,7 @@ import Foundation
 
 class PropertyViewModel: BaseViewModel {
     var mid: Int = UserManager.sharedInstance().managerInfo?.mid ?? 0
-    let webservice = PropertyService()
+    let webservice = PropertyService(jwtToken: UserManager.sharedInstance().jwtToken)
     var nextOffset: Int = 0
     
     override init() {

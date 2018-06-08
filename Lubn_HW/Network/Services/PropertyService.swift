@@ -12,6 +12,10 @@ import SwiftyJSON
 class PropertyService: HttpConnectionRequest {
     override var urlname: String { return "/property" }
     
+    convenience init(jwtToken: String){
+        self.init(header: ["Authorization":"Bearer \(jwtToken)"])
+    }
+    
     func getPropertyData(mid: Int, offset: Int = 0, respnose:@escaping ([PropertyModel])->Void, error:@escaping (Int,String)->Void) {
         self.get(urlParameter: "?mid=\(mid)&offset=\(offset)", response: { (result) in
             self.errorCode = NetworkError.success.rawValue

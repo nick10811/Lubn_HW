@@ -13,27 +13,31 @@ class HttpConnectionRequest {
     var errorCode: Int = NetworkError.success.rawValue
     var urlname: String {return ""}
     
-    var dict: [String:Any]
+    var header: [String:String] = ["X-App-Version":appVer,
+                                   "X-Api-Key":apiKey,
+                                   "accept":"application/json"]
+    var parameter: [String:Any] = [:]
     
     /// Inital a request connection
     ///
-    /// - parameter dict:        The parameters by dictionary.
-    init(dict: [String:Any]) {
-        self.dict = dict
-    }
-    
-    init() {
-        self.dict = [:]
+    /// - header  header      :        The headers by dictionary.
+    /// - parameter parameter :        The parameters by dictionary.
+    init(header: [String:String]? = nil, parameter: [String:Any]? = nil) {
+        if header != nil {
+            for (key,value) in header! {
+                self.header.updateValue(value, forKey: key)
+            }
+        }
+        
+        if parameter != nil {
+            self.parameter = parameter!
+        }
     }
     
     func post(response:@escaping(JSON)->Void, error:@escaping(Int, String)->Void) {
         let url = serverIP+urlname
-        printLog(.debug, "[POST] HttpConnection:\(url), dictString: \(dict)" )
-        _ = HttpClient.sharedInstance().request(.post, url, ["X-App-Version":appVer,
-                                                             "accept":"application/json",
-                                                             "X-Api-Key":apiKey,
-                                                             "Content-Type":"application/x-www-form-urlencoded"],
-                                                dict, response: { (result) in
+        printLog(.debug, "[POST] HttpConnection:\(url), dictString: \(parameter)" )
+        _ = HttpClient.sharedInstance().request(.post, url, header,                                              parameter, response: { (result) in
             response(result)
         }, error: { (code, message) in
             self.errorCode = code
@@ -43,13 +47,8 @@ class HttpConnectionRequest {
     
     func get(urlParameter: String, response:@escaping(JSON)->Void, error:@escaping(Int, String)->Void) {
         let url = serverIP+urlname+urlParameter
-        printLog(.debug, "[GET] HttpConnection:\(url), dictString: \(dict)" )
-        _ = HttpClient.sharedInstance().request(.get, url, ["X-App-Version":appVer,
-                                                             "accept":"application/json",
-                                                             "X-Api-Key":apiKey,
-                                                             "Authorization":"Bearer \(UserManager.sharedInstance().jwtToken)"],
-                                                dict, response: { (result) in
-                                                    response(result)
+        printLog(.debug, "[GET] HttpConnection:\(url), dictString: \(parameter)" )
+        _ = HttpClient.sharedInstance().request(.get, url, header,                                                parameter, response: { (result) in                                                    response(result)
         }, error: { (code, message) in
             self.errorCode = code
             error(code, message)
