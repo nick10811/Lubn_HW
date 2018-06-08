@@ -24,12 +24,11 @@ class HttpClient {
     }
     
     init(timeoutSecond: Double) {
-//        let configuration = URLSessionConfiguration.default
-//        configuration.timeoutIntervalForRequest = timeoutSecond
-//        configuration.timeoutIntervalForResource = timeoutSecond
-//        configuration.requestCachePolicy = .reloadRevalidatingCacheData
-//        sessionManager = Alamofire.SessionManager(configuration: configuration)
-        sessionManager = Alamofire.SessionManager.default
+        let configuration = URLSessionConfiguration.default
+        configuration.timeoutIntervalForRequest = timeoutSecond
+        configuration.timeoutIntervalForResource = timeoutSecond
+        configuration.requestCachePolicy = .reloadRevalidatingCacheData
+        sessionManager = Alamofire.SessionManager(configuration: configuration)
     }
     
     /// Creates a `Http Request` to retrieve the contents of the specified `url`, `method`, `parameters` and `headers`.
