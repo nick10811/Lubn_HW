@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LoginViewController: UIViewController {
+class LoginViewController: BaseViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var pwdTextField: UITextField!
     
@@ -18,8 +18,10 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        self.hideStatusBar(hide: true)
         emailTextField.attributedPlaceholder = emailTextField.placeholder?.getPlaceholderAttribute()
         pwdTextField.attributedPlaceholder = pwdTextField.placeholder?.getPlaceholderAttribute()
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -27,9 +29,9 @@ class LoginViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    override var prefersStatusBarHidden: Bool {
-        return true
-    }
+//    override var prefersStatusBarHidden: Bool {
+//        return true
+//    }
     
     @IBAction func clickSignIn(_ sender: Any) {
         let emailString = emailTextField.text ?? ""

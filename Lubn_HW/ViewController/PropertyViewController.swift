@@ -9,7 +9,7 @@
 import UIKit
 import SDWebImage
 
-class PropertyViewController: UIViewController {
+class PropertyViewController: BaseViewController {
     @IBOutlet weak var photoImage: UIImageView!
     @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var activationButton: UIButton!
