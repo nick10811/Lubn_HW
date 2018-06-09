@@ -62,4 +62,8 @@ class PropertyModel: JsonModel {
         self.country = self.jsonDict["country"].stringValue
     }
     
+    init() {
+        super.init(jsonDict: JSON())
+    }
+    
 }
