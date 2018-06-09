@@ -39,6 +39,10 @@
 		94B2CE6920C96E6600729E74 /* PropertyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B2CE6820C96E6600729E74 /* PropertyCell.swift */; };
 		94C1B04320CB7E770083CD12 /* AuthViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C1B04220CB7E770083CD12 /* AuthViewModelTests.swift */; };
 		94C1B04720CB85060083CD12 /* PropertyViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C1B04620CB85060083CD12 /* PropertyViewModelTests.swift */; };
+		94C1B04C20CC0BF60083CD12 /* WebServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C1B04B20CC0BF60083CD12 /* WebServiceTests.swift */; };
+		94C1B04E20CC0F070083CD12 /* response_LoginService.json in Resources */ = {isa = PBXBuildFile; fileRef = 94C1B04D20CC0F070083CD12 /* response_LoginService.json */; };
+		94C1B05020CC14FD0083CD12 /* response_PropertyService.json in Resources */ = {isa = PBXBuildFile; fileRef = 94C1B04F20CC14FD0083CD12 /* response_PropertyService.json */; };
+		94C1B05120CC1A7D0083CD12 /* OHHTTPStubs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94C1B04920CC0B470083CD12 /* OHHTTPStubs.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +93,10 @@
 		94B2CE6820C96E6600729E74 /* PropertyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyCell.swift; sourceTree = "<group>"; };
 		94C1B04220CB7E770083CD12 /* AuthViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModelTests.swift; sourceTree = "<group>"; };
 		94C1B04620CB85060083CD12 /* PropertyViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyViewModelTests.swift; sourceTree = "<group>"; };
+		94C1B04920CC0B470083CD12 /* OHHTTPStubs.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OHHTTPStubs.framework; path = Carthage/Build/iOS/OHHTTPStubs.framework; sourceTree = "<group>"; };
+		94C1B04B20CC0BF60083CD12 /* WebServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebServiceTests.swift; sourceTree = "<group>"; };
+		94C1B04D20CC0F070083CD12 /* response_LoginService.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = response_LoginService.json; sourceTree = "<group>"; };
+		94C1B04F20CC14FD0083CD12 /* response_PropertyService.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = response_PropertyService.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +116,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				94C1B05120CC1A7D0083CD12 /* OHHTTPStubs.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -173,8 +182,11 @@
 		94B2CE2920C90F6600729E74 /* Lubn_HWTests */ = {
 			isa = PBXGroup;
 			children = (
+				94C1B04B20CC0BF60083CD12 /* WebServiceTests.swift */,
 				94C1B04220CB7E770083CD12 /* AuthViewModelTests.swift */,
 				94C1B04620CB85060083CD12 /* PropertyViewModelTests.swift */,
+				94C1B04D20CC0F070083CD12 /* response_LoginService.json */,
+				94C1B04F20CC14FD0083CD12 /* response_PropertyService.json */,
 				94B2CE2C20C90F6600729E74 /* Info.plist */,
 			);
 			path = Lubn_HWTests;
@@ -241,6 +253,7 @@
 		94B2CE4520C913E700729E74 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				94C1B04920CC0B470083CD12 /* OHHTTPStubs.framework */,
 				94B2CE4E20C9140400729E74 /* SwiftyJSON.framework */,
 				94B2CE4920C913E800729E74 /* Alamofire.framework */,
 				94B2CE4820C913E700729E74 /* MBProgressHUD.framework */,
@@ -321,6 +334,7 @@
 				94B2CE2220C90F6600729E74 /* Sources */,
 				94B2CE2320C90F6600729E74 /* Frameworks */,
 				94B2CE2420C90F6600729E74 /* Resources */,
+				94C1B05220CC1A8C0083CD12 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -386,6 +400,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				94C1B04E20CC0F070083CD12 /* response_LoginService.json in Resources */,
+				94C1B05020CC14FD0083CD12 /* response_PropertyService.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -403,6 +419,20 @@
 				"$(SRCROOT)/Carthage/Build/iOS/Reachability.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SDWebImage.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/MBProgressHUD.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+		94C1B05220CC1A8C0083CD12 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/OHHTTPStubs.framework",
 			);
 			outputPaths = (
 			);
@@ -447,6 +477,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				94C1B04320CB7E770083CD12 /* AuthViewModelTests.swift in Sources */,
+				94C1B04C20CC0BF60083CD12 /* WebServiceTests.swift in Sources */,
 				94C1B04720CB85060083CD12 /* PropertyViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -653,6 +684,10 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = KDFS53L46Q;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = Lubn_HWTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -674,6 +709,10 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = KDFS53L46Q;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = Lubn_HWTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

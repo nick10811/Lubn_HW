@@ -1,0 +1,91 @@
+{
+  "jwtToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJtZW1iZXIiOjYsImlhdCI6MTUyODU1MTIzNCwiZXhwIjoxNTI4NTU0ODk0LCJhdWQiOiJhcHAiLCJpc3MiOiJpbnRlcnZpZXcubHVibi5jb20ifQ.Tj_MNAB7rUPkKb50-g90UwVCLSSH4qIOhWe_8HQvl4E",
+  "managerInfo": {
+    "mid": 6,
+    "email": "nick10811@gmail.com",
+    "photourl": "https://s3.amazonaws.com/lubn-interview/n.jpg"
+  },
+  "propertyCount": 24,
+  "propertyList": [
+    {
+      "idx": 1,
+      "addr": "1600 Amphitheatre Parkway",
+      "city": "Mountain View",
+      "state": "CA",
+      "zip": "94043 ",
+      "country": "US"
+    },
+    {
+      "idx": 2,
+      "addr": "340 Main Street",
+      "city": "Los Angeles",
+      "state": "CA",
+      "zip": "90291",
+      "country": "US"
+    },
+    {
+      "idx": 3,
+      "addr": "320 N. Morgan, Suite 600",
+      "city": "Chicago",
+      "state": "IL",
+      "zip": "60607",
+      "country": "US"
+    },
+    {
+      "idx": 4,
+      "addr": "6425 Penn Avenue",
+      "city": "Pittsburgh",
+      "state": "PA",
+      "zip": "15206",
+      "country": "US"
+    },
+    {
+      "idx": 5,
+      "addr": "114 Willits Street",
+      "city": "Birmingham",
+      "state": "MI",
+      "zip": "48009",
+      "country": "US"
+    },
+    {
+      "idx": 6,
+      "addr": "355 Main Street",
+      "city": "Cambridge",
+      "state": "MA",
+      "zip": "02142",
+      "country": "US"
+    },
+    {
+      "idx": 7,
+      "addr": "200 West Franklin Street",
+      "city": "Chapel Hill",
+      "state": "NC",
+      "zip": "27516",
+      "country": "US"
+    },
+    {
+      "idx": 8,
+      "addr": "500 W 2nd St",
+      "city": "Austin",
+      "state": "TX",
+      "zip": "78701",
+      "country": "US"
+    },
+    {
+      "idx": 9,
+      "addr": "2300 Traverwood Dr.",
+      "city": "Ann Arbor",
+      "state": "MI",
+      "zip": "48105",
+      "country": "US"
+    },
+    {
+      "idx": 10,
+      "addr": "10 10th Street NE",
+      "city": "Atlanta",
+      "state": "GA",
+      "zip": "30309",
+      "country": "US"
+    }
+  ]
+}
