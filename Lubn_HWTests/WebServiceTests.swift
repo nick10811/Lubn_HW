@@ -7,7 +7,7 @@
 //
 
 import XCTest
-import OHHTTPStubs
+import Hippolyte
 @testable import Lubn_HW
 
 class WebServiceTests: XCTestCase {
@@ -25,24 +25,33 @@ class WebServiceTests: XCTestCase {
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
-        OHHTTPStubs.removeAllStubs()
+        Hippolyte.shared.stop()
     }
     
     func testLoginService() {
-        let ex = expectation(description: "LoginService")
-        stub(condition: isPath("https://cky9jjmd5l.execute-api.us-west-2.amazonaws.com/v0/app/signin/i")) { request in
-            let stubPath = OHPathForFile("response_LoginService.json", type(of: self))
-            return fixture(filePath: stubPath!, headers: ["Content-Type":"application/json"])
-        }
+        guard let loginURL = URL(string: "https://cky9jjmd5l.execute-api.us-west-2.amazonaws.com/v0/app/signin/i") else { return }
+        var stub = StubRequest(method: .POST, url: loginURL)
+        let path = Bundle(for: type(of: self)).path(forResource: "response_LoginService", ofType: "json")!
+        let data = NSData(contentsOfFile: path)!
+        let body = data
+        let response: StubResponse = StubResponse.Builder()
+            .stubResponse(withStatusCode: 200)
+            .addHeader(withKey: "Content-Type", value: "application/json")
+            .addBody(body as Data)
+            .build()
+        stub.response = response
+        Hippolyte.shared.add(stubbedRequest: stub)
+        Hippolyte.shared.start()
         
+        let ex = expectation(description: "LoginService")
         let webservice = LoginService(email: self.email, pwd: "nepal")
         webservice.login(respnose: { (jwtToken, managerInfo, propertyCount, propertyList) in
-//            XCTAssert(jwtToken == self.token)
-            XCTAssert(managerInfo.mid == self.mid)
-            XCTAssert(managerInfo.email == self.email)
-            XCTAssert(managerInfo.photoURL == self.photourl)
-            XCTAssert(propertyCount == self.propertyCount)
-            XCTAssert(propertyList.count == 10)
+            XCTAssertTrue(jwtToken == self.token)
+            XCTAssertTrue(managerInfo.mid == self.mid)
+            XCTAssertTrue(managerInfo.email == self.email)
+            XCTAssertTrue(managerInfo.photoURL == self.photourl)
+            XCTAssertTrue(propertyCount == self.propertyCount)
+            XCTAssertTrue(propertyList.count == 10)
             ex.fulfill()
             
         }) { (code, message) in
@@ -59,15 +68,24 @@ class WebServiceTests: XCTestCase {
     }
     
     func testPropertyService() {
+        guard let propertyURL = URL(string: "https://cky9jjmd5l.execute-api.us-west-2.amazonaws.com/v0/app/property?mid=6&offset=0") else { return }
+        var stub = StubRequest(method: .GET, url: propertyURL)
+        let path = Bundle(for: type(of: self)).path(forResource: "response_PropertyService", ofType: "json")!
+        let data = NSData(contentsOfFile: path)!
+        let body = data
+        let response: StubResponse = StubResponse.Builder()
+            .stubResponse(withStatusCode: 200)
+            .addHeader(withKey: "Content-Type", value: "application/json")
+            .addBody(body as Data)
+            .build()
+        stub.response = response
+        Hippolyte.shared.add(stubbedRequest: stub)
+        Hippolyte.shared.start()
+        
         let ex = expectation(description: "PropertyService")
-        stub(condition: isPath("https://cky9jjmd5l.execute-api.us-west-2.amazonaws.com/v0/app/property?mid=6&offset=0")) { request in
-            let stubPath = OHPathForFile("response_PropertyService.json", type(of: self))
-            return fixture(filePath: stubPath!, headers: ["Content-Type":"application/json"])
-        }
-
         let webservice = PropertyService(jwtToken: self.token)
         webservice.getPropertyData(mid: self.mid, offset: 0, respnose: { (result) in
-            XCTAssert(result.count == 10)
+            XCTAssertTrue(result.count == 10)
             ex.fulfill()
         }) { (code, message) in
             XCTAssert(false)

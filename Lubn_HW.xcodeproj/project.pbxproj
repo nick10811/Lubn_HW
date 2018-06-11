@@ -42,7 +42,7 @@
 		94C1B04C20CC0BF60083CD12 /* WebServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C1B04B20CC0BF60083CD12 /* WebServiceTests.swift */; };
 		94C1B04E20CC0F070083CD12 /* response_LoginService.json in Resources */ = {isa = PBXBuildFile; fileRef = 94C1B04D20CC0F070083CD12 /* response_LoginService.json */; };
 		94C1B05020CC14FD0083CD12 /* response_PropertyService.json in Resources */ = {isa = PBXBuildFile; fileRef = 94C1B04F20CC14FD0083CD12 /* response_PropertyService.json */; };
-		94C1B05120CC1A7D0083CD12 /* OHHTTPStubs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94C1B04920CC0B470083CD12 /* OHHTTPStubs.framework */; };
+		94CC3BAB20CE223E00BCAEB6 /* Hippolyte.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94CC3BAA20CE223E00BCAEB6 /* Hippolyte.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,6 +97,7 @@
 		94C1B04B20CC0BF60083CD12 /* WebServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebServiceTests.swift; sourceTree = "<group>"; };
 		94C1B04D20CC0F070083CD12 /* response_LoginService.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = response_LoginService.json; sourceTree = "<group>"; };
 		94C1B04F20CC14FD0083CD12 /* response_PropertyService.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = response_PropertyService.json; sourceTree = "<group>"; };
+		94CC3BAA20CE223E00BCAEB6 /* Hippolyte.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Hippolyte.framework; path = Carthage/Build/iOS/Hippolyte.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,7 +117,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				94C1B05120CC1A7D0083CD12 /* OHHTTPStubs.framework in Frameworks */,
+				94CC3BAB20CE223E00BCAEB6 /* Hippolyte.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -253,6 +254,7 @@
 		94B2CE4520C913E700729E74 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				94CC3BAA20CE223E00BCAEB6 /* Hippolyte.framework */,
 				94C1B04920CC0B470083CD12 /* OHHTTPStubs.framework */,
 				94B2CE4E20C9140400729E74 /* SwiftyJSON.framework */,
 				94B2CE4920C913E800729E74 /* Alamofire.framework */,
@@ -432,7 +434,7 @@
 			files = (
 			);
 			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/OHHTTPStubs.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Hippolyte.framework",
 			);
 			outputPaths = (
 			);
